@@ -7,27 +7,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Jersey+25&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     <title>Pomodoro</title>
 </head>
-<body class="bg-[#B23A48] h-screen flex flex-col items-center justify-center">
-    <p id="timerText" class="text-9xl text-[#8C2F39]" style="font-family: 'Archivo Black', sans-serif;"><span id="minutes">25</span>:<span id="seconds">00</span></p>
+<body class="bg-[#8ECAE6] h-screen flex flex-col items-center justify-center">
+    <p id="timerText" class="text-9xl text-[#81B8D1]" style="font-family: 'Archivo Black', sans-serif;"><span id="minutes">25</span>:<span id="seconds">00</span></p>
 
     <div id="buttonsContainer" class="flex">
-        <div onclick="addMinute()" id="addMinute" class="w-16 h-10 bg-[#461220] rounded-xl flex items-center justify-center transform transition duration-200 hover:scale-105">
-            <p class="text-2xl text-[#D77A7D]" style="font-family: 'Archivo Black', sans-serif;">+1</p>
+        <div onclick="addMinute()" id="addMinute" class="w-16 h-10 bg-[#023047] rounded-xl flex items-center justify-center transform transition duration-200 hover:scale-105">
+            <p class="text-2xl text-[#8ECAE6]" style="font-family: 'Archivo Black', sans-serif;">+1</p>
         </div>
 
-        <div onclick="toggleTimer()" id="playPause" class="mx-4 w-20 h-10 bg-[#461220] rounded-xl flex items-center justify-center transform transition duration-200 hover:scale-105">
-            <img id='playPauseImg' src="./images/play-solid-red.svg" class="w-1/4">
+        <div onclick="toggleTimer()" id="playPause" class="mx-4 w-20 h-10 bg-[#023047] rounded-xl flex items-center justify-center transform transition duration-200 hover:scale-105">
+            <img id='playPauseImg' src="./images/play-solid-blue.svg" class="w-1/4">
         </div>
 
-        <div onclick="resetTimer()" id="resetTimer" class="w-16 h-10 bg-[#461220] rounded-xl flex items-center justify-center transform transition duration-200 hover:scale-110">
-            <img src="./images/xmark-solid-red.svg" class="w-1/3">
+        <div onclick="resetTimer()" id="resetTimer" class="w-16 h-10 bg-[#023047] rounded-xl flex items-center justify-center transform transition duration-200 hover:scale-110">
+            <img src="./images/xmark-solid-blue.svg" class="w-1/3">
         </div>
     </div>
 
     <script>
-        let currentTimeLeft = 25 * 60; // Set default timer value
+        let currentTimeLeft = 5 * 60; // Set default timer value
         let isRunning = false; // Track if the timer is running
         let intervalId = null; // Store interval ID
+        let flashInterval; 
 
         let audio = new Audio('./audio/Spokes.mp3');
         audio.loop = true;
@@ -48,8 +49,8 @@
         function startTimer() {
             if (!isRunning) { 
                 isRunning = true;
-                document.getElementById('timerText').classList = 'text-9xl text-[#461220]'; // Change timer colour
-                document.getElementById('playPauseImg').src = './images/pause-solid-red.svg'; // Change button image
+                document.getElementById('timerText').classList = 'text-9xl text-[#023047]'; // Change timer colour
+                document.getElementById('playPauseImg').src = './images/pause-solid-blue.svg'; // Change button image
                 
                 updateDisplay(); // Show correct time immediately
 
@@ -69,29 +70,29 @@
 
         function pauseTimer() {
             clearInterval(intervalId);
-            document.getElementById('playPauseImg').src = './images/play-solid-red.svg';
-            document.getElementById('timerText').classList = 'text-9xl text-[#8C2F39]';
+            document.getElementById('playPauseImg').src = './images/play-solid-blue.svg';
+            document.getElementById('timerText').classList = 'text-9xl text-[#81B8D1]';
             isRunning = false;
         }
 
         function resetTimer() {
             clearInterval(intervalId);
             isRunning = false;
-            currentTimeLeft = 25 * 60;
+            currentTimeLeft = 5 * 60;
             updateDisplay();
-            document.getElementById('playPauseImg').src = './images/play-solid-red.svg';
-            document.getElementById('timerText').classList = 'text-9xl text-[#8C2F39]';
+            document.getElementById('playPauseImg').src = './images/play-solid-blue.svg';
+            document.getElementById('timerText').classList = 'text-9xl text-[#81B8D1]';
         }
 
         function alarmStart() {
-            document.getElementById('addMinute').classList = 'w-20 h-10 bg-[#461220] rounded-l-xl flex items-center justify-center';
+            document.getElementById('addMinute').classList = 'w-20 h-10 bg-[#023047] rounded-l-xl flex items-center justify-center';
             document.getElementById('addMinute').innerText = ''
 
-            document.getElementById('playPause').classList = 'w-20 h-10 bg-[#461220] flex items-center justify-center';
+            document.getElementById('playPause').classList = 'w-20 h-10 bg-[#023047] flex items-center justify-center';
             document.getElementById('playPause').onclick = alarmStop;
-            document.getElementById('playPause').innerHTML = '<div class="h-6 w-6 rounded-md bg-[#D77A7D]"><p class="hidden"></p></div>'
+            document.getElementById('playPause').innerHTML = '<div class="h-6 w-6 rounded-md bg-[#8ECAE6]"><p class="hidden"></p></div>'
 
-            document.getElementById('resetTimer').classList = 'w-20 h-10 bg-[#461220] rounded-r-xl flex items-center justify-center';
+            document.getElementById('resetTimer').classList = 'w-20 h-10 bg-[#023047] rounded-r-xl flex items-center justify-center';
             document.getElementById('resetTimer').innerHTML = ''
 
             audio.currentTime = 0;
@@ -101,7 +102,7 @@
             let timerText = document.getElementById('timerText');
             let isOriginalColor = true;
             flashInterval = setInterval(() => {
-                timerText.style.color = isOriginalColor ? '#8C2F39' : '#461220'; 
+                timerText.style.color = isOriginalColor ? '#81B8D1' : '#023047';
                 isOriginalColor = !isOriginalColor;
             }, 500); // Toggle every 500ms
         }
@@ -110,25 +111,25 @@
             clearInterval(flashInterval); // Stop flashing effect
 
             document.getElementById('playPause').onclick = toggleTimer; // Restore play/pause functionality
-            document.getElementById('playPause').classList = 'mx-4 w-20 h-10 bg-[#461220] rounded-xl flex items-center justify-center transform transition duration-200 hover:scale-105'
-            document.getElementById('playPause').innerHTML = '<img id="playPauseImg" src="./images/play-solid-red.svg" class="w-1/4">';
+            document.getElementById('playPause').classList = 'mx-4 w-20 h-10 bg-[#023047] rounded-xl flex items-center justify-center transform transition duration-200 hover:scale-105'
+            document.getElementById('playPause').innerHTML = '<img id="playPauseImg" src="./images/play-solid-blue.svg" class="w-1/4">';
 
-            document.getElementById('addMinute').classList = 'w-16 h-10 bg-[#461220] rounded-xl flex items-center justify-center transform transition duration-200 hover:scale-105';
-            document.getElementById('addMinute').innerHTML = '<p class="text-2xl text-[#D77A7D]" style="font-family: Archivo Black, sans-serif;">+1</p>';
+            document.getElementById('addMinute').classList = 'w-16 h-10 bg-[#023047] rounded-xl flex items-center justify-center transform transition duration-200 hover:scale-105';
+            document.getElementById('addMinute').innerHTML = '<p class="text-2xl text-[#8ECAE6]" style="font-family: Archivo Black, sans-serif;">+1</p>';
 
-            document.getElementById('resetTimer').classList = 'w-16 h-10 bg-[#461220] rounded-xl flex items-center justify-center transform transition duration-200 hover:scale-110';
-            document.getElementById('resetTimer').innerHTML = '<img src="./images/xmark-solid-red.svg" class="w-1/3">';
+            document.getElementById('resetTimer').classList = 'w-16 h-10 bg-[#023047] rounded-xl flex items-center justify-center transform transition duration-200 hover:scale-110';
+            document.getElementById('resetTimer').innerHTML = '<img src="./images/xmark-solid-blue.svg" class="w-1/3">';
 
             resetTimer(); // Reset timer
 
-            window.location.replace("/break.html")
+            window.location.replace("/index.html")
         }
 
         function addMinute() {
-            if (Math.floor(currentTimeLeft / 60) < 24){
+            if (Math.floor(currentTimeLeft / 60) < 4){
                 currentTimeLeft = currentTimeLeft + 60;
             } else {
-                currentTimeLeft = 25 * 60;
+                currentTimeLeft = 5 * 60;
             }
             
             updateDisplay();

@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="320" height="512">
+	<title>pause-solid</title>
+	<defs>
+		<image  width="320" height="512" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAAIAAQMAAADJ7icYAAAAAXNSR0IB2cksfwAAAAZQTFRFAAAAjsrmNrD3zAAAAAJ0Uk5TAP9bkSK1AAABmklEQVR4nO3bQU6EUBCEYVpNdDfeQG+iN1Nv5txEb6A7TdQREKGqZ9MkEKL534oUXwKv39tWNMUVQCAQCAQCgUDgAE8/+uf9bXqpeQ9vHvvg8yxBzTsYX8OLh3v/muYd3L0MweulQctj+sLRty3v4MG3Ni7LQ34l/aTnLTx/G4Pna4Geh/xz2o3nIf+cduN5C++mHzucCPQ8dHO+bc9DN2fbTnn8nvzPknuR8tAp2HxSHjoFm0/Ko7l6kuD9YnxMeei4bJApDx2XDTLlM6DOVSee8rC5ysRzXod2AHI0OQ87ADmanNehnZScYc7r0I5UDjvnK0C7JHJ9cr4CtNsk9yznW0K/yNMVP8qBQCAQCAQCgUAgEAgEAoFAIBAIBAKBQCAQCAQCgUAgEAgEAoFAIBAIBAL/EfwLvY8NazEbloGWbzYt374qF7+W75ylqxzjU8rXaNqVS37l2mC5iFiuNpbLkuX6pU025NnzmFERLZdOyzXWcjG2XLWV7emmUx7NjDpwuWBcriyXS9D1WnVlAYFAIBAIBAKB7foGTQaJYmJYmX0AAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+	</style>
+	<use  href="#img1" x="0" y="0"/>
+</svg>
